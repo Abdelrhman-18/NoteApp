@@ -1,16 +1,17 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:noteapp/core/ColorsName.dart';
-import 'package:noteapp/features/HomePage/Ui.dart';
+import 'package:noteapp/features/HomePage/HomeUi.dart';
+import '../../core/Shared/textfiledwidget.dart';
 
-import '../../core/textfiledwidget.dart';
-
+// ignore: camel_case_types
 class loginScreen extends StatefulWidget {
-  loginScreen({super.key});
+  const loginScreen({super.key});
 
   @override
   State<loginScreen> createState() => _loginScreenState();
 }
 
+// ignore: camel_case_types
 class _loginScreenState extends State<loginScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -22,10 +23,7 @@ class _loginScreenState extends State<loginScreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Container(
-        decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/images/background.jpeg"),
-                fit: BoxFit.cover)),
+        decoration: _decorationcontainer(),
         child: Center(
           child: Form(
             key: key,
@@ -63,7 +61,7 @@ class _loginScreenState extends State<loginScreen> {
                     textAlign: TextAlign.center,
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 100,
                 ),
                 contentText(
@@ -72,7 +70,7 @@ class _loginScreenState extends State<loginScreen> {
                   cond: r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$",
                   returnCond: "please enter Email",
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 contentText(
@@ -82,34 +80,50 @@ class _loginScreenState extends State<loginScreen> {
                       r"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$",
                   returnCond: "please enter Password",
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 70,
                 ),
-                Center(
-                  child: SizedBox(
-                      height: 55,
-                      width: 200,
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          elevation: 18,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(12),
-                          )
-                        ),
-                          onPressed: () {
-                          if(key.currentState!.validate()){
-                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Homepage()));
-                          }
-                          }, child: Text("Login",style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.black,
-                      ),))),
-                )
+                _getbuttom(),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+
+  BoxDecoration _decorationcontainer() {
+    return const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage("assets/images/background.jpeg"),
+            fit: BoxFit.cover));
+  }
+
+  Widget _getbuttom() {
+    return Center(
+      child: SizedBox(
+          height: 55,
+          width: 200,
+          child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  elevation: 18,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),
+                  )),
+              onPressed: () {
+                if (key.currentState!.validate()) {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => Homepage()));
+                }
+              },
+              child: const Text(
+                "Login",
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                ),
+              ))),
     );
   }
 }

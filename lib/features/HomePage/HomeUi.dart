@@ -1,21 +1,19 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:noteapp/core/ColorsName.dart';
-
 import 'package:noteapp/features/HomePage/Homebody.dart';
-import 'package:noteapp/features/personPage/ui.dart';
-
-import '../../core/databasessqlf.dart';
-import '../../core/textfiledwidget.dart';
+import 'package:noteapp/features/personPage/personUi.dart';
 
 class Homepage extends StatefulWidget {
+  const Homepage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _HomepageState createState() => _HomepageState();
 }
 
 class _HomepageState extends State<Homepage> {
   int selectedIndex = 0;
   @override
-
   void onItemTapped(int index) {
     setState(() {
       selectedIndex = index;
@@ -44,7 +42,6 @@ class _HomepageState extends State<Homepage> {
           ),
         ],
       ),
-
       body: pageList[selectedIndex],
     );
   }

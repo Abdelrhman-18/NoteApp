@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:noteapp/core/ColorsName.dart';
+import 'package:noteapp/core/Shared/ColorsName.dart';
 
-import '../../core/personRow.dart';
+import '../../core/Shared/personRow.dart';
 
+// ignore: camel_case_types
 class personPage extends StatelessWidget {
   const personPage({super.key});
 
@@ -44,4 +45,5 @@ class personPage extends StatelessWidget {
       ),
     );
   }
+  
 }

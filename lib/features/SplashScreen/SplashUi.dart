@@ -1,8 +1,8 @@
+// ignore: file_names
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:noteapp/features/StartPage/Ui.dart';
-
-import '../../core/AssetsForApp.dart';
+import 'package:noteapp/features/StartPage/StartPageUI.dart';
+import '../../core/Shared/AssetsForApp.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

@@ -1,6 +1,6 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
-
-import '../../core/ColorsName.dart';
+import '../../core/Shared/ColorsName.dart';
 import '../LoginPage/loginScreen.dart';
 
 class LoginPage extends StatelessWidget {
@@ -32,28 +32,7 @@ class LoginPage extends StatelessWidget {
               Padding(
                 padding:
                     const EdgeInsets.symmetric(vertical: 150, horizontal: 30),
-                child: RichText(
-                  text: const TextSpan(
-                    text: 'Do your\ntasks\nquickly\nand easy',
-                    style: TextStyle(
-                      fontSize: 64,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.black,
-                      height: 1.5,
-                    ),
-                    children: <TextSpan>[
-                      TextSpan(
-                        text: "\nYour tasks, your rules, our support.",
-                        style: TextStyle(
-                          fontWeight: FontWeight.w300,
-                          fontSize: 17,
-                          color: Colors.black,
-                          height: 1.5,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                child: _getrichText(),
               ),
               Center(
                 child: Column(
@@ -63,7 +42,10 @@ class LoginPage extends StatelessWidget {
                       height: 50,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>loginScreen()));
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => loginScreen()));
                         },
                         style: ElevatedButton.styleFrom(
                           elevation: 10,
@@ -97,6 +79,31 @@ class LoginPage extends StatelessWidget {
             ],
           ),
         ),
+      ),
+    );
+  }
+
+  RichText _getrichText() {
+    return RichText(
+      text: const TextSpan(
+        text: 'Do your\ntasks\nquickly\nand easy',
+        style: TextStyle(
+          fontSize: 64,
+          fontWeight: FontWeight.w400,
+          color: Colors.black,
+          height: 1.5,
+        ),
+        children: <TextSpan>[
+          TextSpan(
+            text: "\nYour tasks, your rules, our support.",
+            style: TextStyle(
+              fontWeight: FontWeight.w300,
+              fontSize: 17,
+              color: Colors.black,
+              height: 1.5,
+            ),
+          ),
+        ],
       ),
     );
   }
